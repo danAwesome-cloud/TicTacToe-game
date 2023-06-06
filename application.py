@@ -15,7 +15,7 @@ app = Flask(__name__)
 
  # If you want to run it locally - change it to your local MONGO_URI, you can find it via google: Locally MONGO_URI (example : mongodb://mongodb0.example.com:27017)
 
-app.config["MONGO_URI"] = "mongodb+srv://kolawoledaniel911:TNX8WNSUiyZdzn6S@cluster0.dfgryj2.mongodb.net/Tictak.players"
+app.config["MONGO_URI"] = "mongodb+srv://kolawoledaniel911:TNX8WNSUiyZdzn6S@cluster0.dfgryj2.mongodb.net/Tictac.players"
 mongo = PyMongo(app)
     
 
