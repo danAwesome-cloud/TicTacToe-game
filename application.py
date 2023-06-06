@@ -5,22 +5,28 @@ from flask_pymongo import PyMongo
 import os
 from bson import ObjectId
 from datetime import datetime
-import pymongo
+from pymongo import MongoClient
 import random
+import pymongo
+
 
 # Turn this file to web application
 app = Flask(__name__)
 
-app.config["MONGO_URI"] = os.environ.get("MONGO_URI") # If you want to run it locally - change it to your local MONGO_URI, you can find it via google: Locally MONGO_URI (example : mongodb://mongodb0.example.com:27017)
+ # If you want to run it locally - change it to your local MONGO_URI, you can find it via google: Locally MONGO_URI (example : mongodb://mongodb0.example.com:27017)
 
+app.config["MONGO_URI"] = "mongodb://host.docker.internal:27017/TICTAK"
 mongo = PyMongo(app)
+    
+
+
 app.config["SESSION_FILE_DIR"] = mkdtemp()
 app.config["SESSION_PERMANENT"] = False
 app.config["SESSION_TYPE"] = "filesystem"
 Session(app)
 
 app = Flask(__name__)
-app.secret_key = os.environ.get("SECRET_KEY") # Change to some secret key, for example "My super secret key"
+app.secret_key = "My super secret key" # Change to some secret key, for example "My super secret key"
 
 # First page that user sees.
 @app.route("/")
@@ -48,7 +54,7 @@ def createMultiplayer():
             "XTurn": random.choice([True, False]),
             "board": [[None, None, None], [None, None, None], [None, None, None]]
         }
-
+    players = mongo.db.players
     record = mongo.db.players.insert_one(doc)
     objectId = record.inserted_id
     xLink = "/multiplayer?gameId=" + str(objectId) + "&player=X" 
