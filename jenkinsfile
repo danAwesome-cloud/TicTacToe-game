@@ -21,13 +21,19 @@ node {
     }
     stage('Build Database') {
   
-       app = docker.build("danawesomenew/mongo")
+       database = docker.build("danawesomenew/mongo")
     }
 
     stage('Push image') {
         
         docker.withRegistry('https://registry.hub.docker.com', 'dockerhub1') {
             app.push("${env.BUILD_NUMBER}")
+        }
+    }
+    stage('Push database') {
+        
+        docker.withRegistry('https://registry.hub.docker.com', 'dockerhub1') {
+            database.push("${env.BUILD_NUMBER}")
         }
     }
     
