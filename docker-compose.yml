@@ -1,22 +1,20 @@
-version: "3.9"
+version: '3'
 services:
-  app:
-    build:
-      context: .
-      dockerfile: Dockerfile
+  web:
+    build: .
     ports:
-      - 5000:5000
+      - "5000:5000"
+    volumes:
+      - .:/app
     depends_on:
       - db
-    links:
-      - db
-
   db:
-    image: mongo:latest
+    image: mongo
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=admin
+      - MONGO_INITDB_ROOT_PASSWORD=password
+      - MONGO_INITDB_DATABASE=Tictac.player
     ports:
-      - 27017:27017
+      - "27017:27017"
     volumes:
-      - mongo-data:/data/db
-
-volumes:
-  mongo-data:
+      - ./data:/data/db

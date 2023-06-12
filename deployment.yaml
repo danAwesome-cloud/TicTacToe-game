@@ -3,23 +3,23 @@ kind: Deployment
 metadata:
   creationTimestamp: null
   labels:
-    app: tictactoe
-  name: tictactoe
+    app: game1
+  name: game1
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: tictactoe
+      app: game1
   strategy: {}
   template:
     metadata:
       creationTimestamp: null
       labels:
-        app: tictactoe
+        app: game1
     spec:
       containers:
-      - image: danawesomedoc/gameapp:5
-        name: tictactoe
+      - image: tictactoe-game-web
+        name: game1
         resources: {}
 status: {}
 ---
@@ -35,4 +35,4 @@ spec:
   - port: 80
     targetPort: 5000
   selector:
-    app: tictactoe
+    app: game1
