@@ -9,7 +9,7 @@ node {
 
     stage('Build image') {
   
-       app = docker.build("danawesomedoc/gameapp")
+       app = docker.build("danawesomenew/tictactoe-game-web")
     }
 
     stage('Test image') {
@@ -19,10 +19,14 @@ node {
             sh 'echo "Tests passed"'
         }
     }
+    stage('Build Database') {
+  
+       app = docker.build("danawesomenew/mongo")
+    }
 
     stage('Push image') {
         
-        docker.withRegistry('https://registry.hub.docker.com', 'dockerhub') {
+        docker.withRegistry('https://registry.hub.docker.com', 'dockerhub1') {
             app.push("${env.BUILD_NUMBER}")
         }
     }
