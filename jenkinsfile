@@ -9,7 +9,7 @@ node {
 
     stage('Build image') {
   
-       app = docker.build("danawesomedoc/test")
+       app = docker.build("danawesomedoc/gameapp")
     }
 
     stage('Test image') {
