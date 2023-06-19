@@ -16,8 +16,14 @@ app = Flask(__name__)
  # If you want to runN-13826770 it locally - change it to your local MONGO_URI, you can find it via google: Locally MONGO_URI (example : mongodb://mongodb0.example.com:27017)
 
 app.config["MONGO_URI"] = "mongodb+srv://kolawoledaniel911:TNX8WNSUiyZdzn6S@cluster0.dfgryj2.mongodb.net/Tictac.player"
-mongo = PyMongo(app)
+client = MongoClient(host='Tictak',
+                         port=27017, 
+                         username='root', 
+                         password='pass',
+                        authSource="admin")
     
+mongo = PyMongo(app)
+db = client ["player"]
 
 
 app.config["SESSION_FILE_DIR"] = mkdtemp()
