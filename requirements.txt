@@ -1,6 +1,0 @@
-flask
-flask_session
-gunicorn
-pymongo
-flask_pymongo
-
