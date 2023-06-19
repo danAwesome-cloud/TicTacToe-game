@@ -15,7 +15,7 @@ app = Flask(__name__)
 
  # If you want to runN-13826770 it locally - change it to your local MONGO_URI, you can find it via google: Locally MONGO_URI (example : mongodb://mongodb0.example.com:27017)
 
-app.config["MONGO_URI"] = "mongodb+srv://kolawoledaniel911:TNX8WNSUiyZdzn6S@cluster0.dfgryj2.mongodb.net/Tictac.player"
+app.config["MONGO_URI"] = "mongodb+srv://kolawoledaniel911:TNX8WNSUiyZdzn6S@cluster0.dfgryj2.mongodb.net/Tictac"
 client = MongoClient(host='Tictak',
                          port=27017, 
                          username='root', 
@@ -32,7 +32,7 @@ app.config["SESSION_TYPE"] = "filesystem"
 Session(app)
 
 app = Flask(__name__)
-app.secret_key = "My super secret key" # Change to some secret key, for example "My super secret key"
+app.secret_key = "Mysupersecretkey" # Change to some secret key, for example "My super secret key"
 
 # First page that user sees.
 @app.route("/")
