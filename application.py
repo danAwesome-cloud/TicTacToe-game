@@ -15,8 +15,8 @@ app = Flask(__name__)
 
  # If you want to runN-13826770 it locally - change it to your local MONGO_URI, you can find it via google: Locally MONGO_URI (example : mongodb://mongodb0.example.com:27017)
 
-app.config["MONGO_URI"] = "mongodb+srv://kolawoledaniel911:TNX8WNSUiyZdzn6S@cluster0.dfgryj2.mongodb.net/Tictac"
-client = MongoClient(host='Tictak',
+app.config["MONGO_URI"] = "mongodb+srv://kolawoledaniel91:fOMw9P6nLXLhDdjr@cluster0.inggyfl.mongodb.net/Tictac?retryWrites=true&w=majority?ssl=true&ssl_cert_reqs=CERT_NONE"
+client = pymongo.MongoClient(host='sample_mflix',
                          port=27017, 
                          username='root', 
                          password='pass',
