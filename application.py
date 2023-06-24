@@ -8,7 +8,7 @@ from datetime import datetime
 from pymongo import MongoClient
 import random
 import pymongo
-import certifi
+ 
 
 # Turn this file to web application
 app = Flask(__name__)
