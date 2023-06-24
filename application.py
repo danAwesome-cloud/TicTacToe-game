@@ -8,6 +8,10 @@ from datetime import datetime
 from pymongo import MongoClient
 import random
 import pymongo
+
+
+
+
  
 
 # Turn this file to web application
@@ -43,6 +47,7 @@ app.secret_key = "Mysupersecretkey" # Change to some secret key, for example "My
 def index():
     # Clean the cache for new game
     session.clear()
+   
     return render_template("start.html")
 
 # Multiplayer game:
